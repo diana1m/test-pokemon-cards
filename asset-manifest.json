@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/test-pokemon-cards/static/css/main.073c9b0a.css",
+    "main.js": "/test-pokemon-cards/static/js/main.ed8394d6.js",
+    "static/js/787.f009aea5.chunk.js": "/test-pokemon-cards/static/js/787.f009aea5.chunk.js",
+    "static/media/logo.svg": "/test-pokemon-cards/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/test-pokemon-cards/index.html",
+    "main.073c9b0a.css.map": "/test-pokemon-cards/static/css/main.073c9b0a.css.map",
+    "main.ed8394d6.js.map": "/test-pokemon-cards/static/js/main.ed8394d6.js.map",
+    "787.f009aea5.chunk.js.map": "/test-pokemon-cards/static/js/787.f009aea5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.ed8394d6.js"
+  ]
+}
