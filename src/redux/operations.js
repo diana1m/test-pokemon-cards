@@ -28,7 +28,7 @@ export const fetchPokemons = createAsyncThunk(
   async (page = 1, thunkAPI) => {
     let pokemons = []
     try {
-      for (let i = page; i <= page*20; i ++) {
+      for (let i = page*20-19; i <= page*20; i ++) {
         const id = i+"";
         const { data } = await axios.get(`/pokemon/${id}`)
         // params: {

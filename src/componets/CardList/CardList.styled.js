@@ -10,7 +10,9 @@ export const List = styled.ul `
     max-width: 1280px;
    
     padding: 0;
-    list-style: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    /* list-style: none; */
 
     display: flex;
     flex-direction: row;

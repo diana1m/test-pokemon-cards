@@ -19,9 +19,9 @@ const pokemonsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchPokemons.fulfilled, (state, action) => {
-        // state.page === 1 
-        state.pokemons = action.payload 
-        // : state.pokemons = [...state.pokemons, ...action.payload]
+        state.page === 1 
+        ? state.pokemons = action.payload 
+        : state.pokemons = [...state.pokemons, ...action.payload]
         state.isLoading = false;
     })
     }

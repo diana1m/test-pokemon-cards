@@ -9,7 +9,7 @@ export const Loader = () => {
                 height="200"
                 width="200"
                 radius={1}
-                color="#5CD3A8"
+                color="#fad61f"
                 ariaLabel="puff-loading"
                 wrapperStyle={{}}
                 visible={true}

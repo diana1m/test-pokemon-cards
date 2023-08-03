@@ -17,10 +17,10 @@ export const NavLinkStyled = styled(NavLink)`
     transition-timing-function: linear;
     &:hover,
     &:focus {
-        border-color: #5CD3A8;
+        border-color: #fad61f;
     }
     &.active {
-        background-color: #5CD3A8;
+        background-color: #fad61f;
         pointer-events: none;
     }
 `
