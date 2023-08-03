@@ -15,8 +15,8 @@ export const Header = styled.header`
     padding-bottom: 20px;
     padding-left: 15px;
     background-color: #153462;
-    box-shadow: 0px 2px 10px 1px black;
+    box-shadow:-2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 90px;
+    height: 50px;
 `
