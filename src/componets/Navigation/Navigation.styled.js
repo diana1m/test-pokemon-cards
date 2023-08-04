@@ -13,8 +13,8 @@ export const NavLinkStyled = styled(NavLink)`
 
     text-transform: uppercase;
     transition-property: background-color, border-color;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
     &:hover,
     &:focus {
         border-color: #fad61f;

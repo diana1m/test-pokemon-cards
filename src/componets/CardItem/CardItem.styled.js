@@ -4,7 +4,7 @@ export const Wrapper = styled.li`
     width: 180px;
     padding: 15px;
     /* height: 360px; */
-    background: #c4c2b5;
+    background: #e6e3d2;
     box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     border-radius: 20px;
     display: flex;

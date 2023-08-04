@@ -5,7 +5,7 @@ export const CardItem = ({poke}) => {
     return(
         <Wrapper>
             <h2>{poke.name}</h2>
-            <img src={poke.sprites.other.dream_world.front_default} alt={poke.name} width={"100px"} height={"100px"}/>
+            <img src={poke.sprites.other.dream_world.front_default} alt={poke.name} width={"150px"} height={"180px"}/>
             <p>Type: {types.join(", ")}</p>  
             <ul>
                 {poke.stats.map(item => 

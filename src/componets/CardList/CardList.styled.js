@@ -31,8 +31,8 @@ export const Btn = styled.button`
     margin: 0 auto;
     margin-bottom: 40px;
 
-    background-color: #EBD8FF;
-    border: 3px solid #5736A3;
+    background-color: #feffe0;
+    border: 3px solid #fad61f;
     box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
     border-radius: 10.3108px;
 
@@ -43,13 +43,15 @@ export const Btn = styled.button`
     line-height: calc(22 / 18);
     text-transform: uppercase;
     color: #373737;
-
-    transition: background-color 500ms linear, color 500ms linear, border 500ms linear ;
+    
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
 
     &:hover{
-        background-color: #5736A3;
-        border: 2px solid #EBD8FF;
-        color: #EBD8FF;
+        background-color: #fad61f;
+        border-color: #feffe0;
+        color: #feffe0;
     }
 
     &:disabled{
@@ -83,10 +85,10 @@ export const BtnGoBack = styled(NavLink)`
     letter-spacing: 0.06em;
     
     cursor: pointer;
-    transition: background-color 500ms linear;
+    transition: background-color 500ms ease;
     &:hover,
     &:focus {
-        color:#EBD8FF;
-        background-color: #5736A3;
+        color:#FBFCFB;
+        background-color: #fad61f;
     }
 `
