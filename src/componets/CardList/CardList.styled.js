@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 export const Container = styled.section`
     max-width: 1280px; 
     margin: 40px auto;
+    padding: 0 30px;
 `
 
 export const List = styled.ul `
@@ -62,11 +63,21 @@ export const Btn = styled.button`
     }
 `
 
+export const WrapForBtn = styled.div`
+    display: flex;
+    align-items: center;
+    padding-right: 140px;
+    max-width: 1280px;
+    margin-bottom: 30px;
+    @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 20px;
+    }
+`
+
 export const BtnGoBack = styled(NavLink)`
     display: block;
     width: 140px;
-    margin-top: 40px;
-    margin-left: 30px;
     padding: 12px 18px;
 
     display: flex;
