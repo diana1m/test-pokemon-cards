@@ -3,9 +3,9 @@ On this test website, you can view cards of different Pokemon. The site was crea
 
 ## Screenshots
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://drive.google.com/file/d/1voRXrIuQlO1Sm28Zr22EEsOM0BouQq18/view?usp=drive_link">
- <source media="(prefers-color-scheme: light)" srcset="https://drive.google.com/file/d/1voRXrIuQlO1Sm28Zr22EEsOM0BouQq18/view?usp=drive_link">
- <img alt="YOUR-ALT-TEXT" src="https://drive.google.com/file/d/1voRXrIuQlO1Sm28Zr22EEsOM0BouQq18/view?usp=drive_link">
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/diana1m/test-pokemon-cards/assets/110974019/f20447c2-4e91-4053-abf1-2e3bf575425a">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/diana1m/test-pokemon-cards/assets/110974019/f20447c2-4e91-4053-abf1-2e3bf575425a">
+ <img alt="screenshot" src="https://github.com/diana1m/test-pokemon-cards/assets/110974019/f20447c2-4e91-4053-abf1-2e3bf575425a">
 </picture>
 
 ## Viewing the site
