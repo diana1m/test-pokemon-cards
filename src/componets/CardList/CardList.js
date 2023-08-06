@@ -6,7 +6,7 @@ import { selectFilterName, selectFilterTags, selectIsLoading, selectIsLoadingPok
 import { fetchPokemons} from "../../redux/operations";
 import { changePage } from "../../redux/slice";
 
-import { Btn, List, BtnGoBack, Container, WrapForBtn} from "./CardList.styled";
+import { Btn, List, BtnGoBack, Container, WrapForBtn, Notification} from "./CardList.styled";
 import { FiArrowLeft } from "react-icons/fi";
 import { Loader } from "../Loader/Loader";
 import { CardItem } from "../CardItem/CardItem";
@@ -72,22 +72,18 @@ export const CardList = () => {
             
             {isLoadingPokemons && <Loader/> }
             {(!isLoadingPokemons && filterByTags().length === 0)
-                    ? <p style={{
-                        display: "flex", 
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "36px",
-                        height: "150px",
-                }}>Nothing was found for your request</p> 
+                    ? <Notification>Nothing was found for your request
+                        
+                    </Notification> 
                     : <List>
                     {filterByTags().map(poke=><CardItem key = {poke.id} poke={poke}/>)}
                 </List>
             } 
             
             
-            {(!isLoading && filterByTags().length !== 0) &&
+            {(!isLoadingPokemons && filterByTags().length !== 0) &&
             <Btn type="button" onClick={handleLoadMore} disabled={pages === 20}>
-            Load more
+            Load next page
             </Btn>} 
         </Container>
     )

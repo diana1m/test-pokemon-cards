@@ -7,13 +7,23 @@ export const Container = styled.section`
     padding: 0 30px;
 `
 
+export const Notification = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 36px;
+    height: 150px;
+    width: 80%;
+
+`
+
 export const List = styled.ul `
     max-width: 1280px;
    
     padding: 0;
     margin-bottom: 30px;
     margin-top: 30px;
-    /* list-style: none; */
 
     display: flex;
     flex-direction: row;

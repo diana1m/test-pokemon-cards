@@ -12,8 +12,8 @@ export const StyledInput = styled.input`
     transition: box-shadow 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 
 
-    &:focus {
-        
+    &:focus,
+    :hover {
         box-shadow: 0px 7px 7px 0px rgba(0, 123, 255, 0.3);
         border-bottom-color: green;
     }
