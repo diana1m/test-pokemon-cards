@@ -2,14 +2,12 @@
 On this test website, you can view cards of different Pokemon. The site was created to demonstrate skills in working with web technologies and APIs.
 
 ## Screenshots
+![image](https://github.com/diana1m/test-pokemon-cards/assets/110974019/5fc9baae-9f9c-461a-ba9c-39e4850cc490)
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/diana1m/test-pokemon-cards/assets/110974019/f20447c2-4e91-4053-abf1-2e3bf575425a">
  <source media="(prefers-color-scheme: light)" srcset="https://github.com/diana1m/test-pokemon-cards/assets/110974019/f20447c2-4e91-4053-abf1-2e3bf575425a">
  <img alt="screenshot" src="https://github.com/diana1m/test-pokemon-cards/assets/110974019/f20447c2-4e91-4053-abf1-2e3bf575425a">
 </picture>
-
-![image](https://github.com/diana1m/test-pokemon-cards/assets/110974019/5fc9baae-9f9c-461a-ba9c-39e4850cc490)
-
 
 ## Viewing the site
 You can view this site at the link: https://diana1m.github.io/test-pokemon-cards/
