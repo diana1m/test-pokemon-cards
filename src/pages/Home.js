@@ -1,4 +1,3 @@
-// import helloImg from '../images/hello.gif';
 import pikachu from '../images/Pikachu.png';
 import { Wrapper } from './Home.styled';
 

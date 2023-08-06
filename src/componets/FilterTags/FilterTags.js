@@ -16,7 +16,6 @@ export const FilterTags=()=>{
 
     function handleBtn (type) {
         dispatch(changeFilterTags(type));
-        console.log(filterTags);
     } 
 
     return(

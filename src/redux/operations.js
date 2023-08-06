@@ -14,7 +14,6 @@ export const fetchPokemons = createAsyncThunk(
       pokemons.push(data);
       }
       
-      // console.log(pokemons);
       return pokemons;
     } catch (e) {
         thunkAPI.rejectWithValue(e.message);

@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 `
 
 export const TagsBtn = styled.button`
-    /* color: #fefff1; */
     font-size: 24px;
     background-color: ${props => typesColor[props.color]};
     border-width: 2px;
@@ -19,7 +18,6 @@ export const TagsBtn = styled.button`
     border-radius: 8px;
     padding: 4px 12px;
     transform: ${props => props.isActive ? "scale(1.1)" : "scale(1)"};
-    /* border: none; */
     cursor: pointer;
     transition-property: box-shadow;
     transition-duration: 0.4s;
