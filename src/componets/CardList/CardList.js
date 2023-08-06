@@ -14,7 +14,6 @@ import { FilterTags } from "../FilterTags/FilterTags";
 import { FilterName } from "../FilterName/FilterName";
 
 
-
 export const CardList = () => {
     const pokemons = useSelector(selectPokemons);
     const pages = useSelector(selectPage);
@@ -26,13 +25,9 @@ export const CardList = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-    console.log(filterTags)
     const filterPokemons = pokemons
     .filter(pokemon => pokemon.name.includes(filterName.toLowerCase()))
-    // .filter(pokemon => filterTags.includes(pokemon.types[0].type.name) );
-    // .filter(pokemon => pokemon.types[0].type.name === filterTags[0]);
-    // .filter(pokemon => pokemon.types.map(type=> type.type.name === filterTags[0]));
-    console.log(filterPokemons)
+
 
     const filterByTags = () => {
         if (filterTags.length === 0) {
@@ -44,7 +39,6 @@ export const CardList = () => {
         return newArr;
     };
     
-
 
     const handleLoadMore = () => {
         dispatch(changePage(pages+1))
@@ -76,12 +70,22 @@ export const CardList = () => {
              
             <FilterTags/>
             
-            {isLoadingPokemons && <Loader/> } 
-            <List>
-                {filterByTags().map(poke=><CardItem key = {poke.id} poke={poke}/>)}
-            </List>
+            {isLoadingPokemons && <Loader/> }
+            {(!isLoadingPokemons && filterByTags().length === 0)
+                    ? <p style={{
+                        display: "flex", 
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "36px",
+                        height: "150px",
+                }}>Nothing was found for your request</p> 
+                    : <List>
+                    {filterByTags().map(poke=><CardItem key = {poke.id} poke={poke}/>)}
+                </List>
+            } 
             
-            {!isLoading && 
+            
+            {(!isLoading && filterByTags().length !== 0) &&
             <Btn type="button" onClick={handleLoadMore} disabled={pages === 20}>
             Load more
             </Btn>} 
