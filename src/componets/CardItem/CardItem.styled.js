@@ -24,7 +24,7 @@ export const typesColor = {
 }
 
 export const Wrapper = styled.li`
-    width: 180px;
+    width: 200px;
     padding: 15px;
     background: #e6e3d2;
     color: #1D1515;
@@ -80,7 +80,13 @@ export const TagsCard = styled.span`
     font-size: 26px;
     }
 `
-export const WrapForStat = styled.li`
+
+export const ListStat = styled.ul`
+    margin: 0;
+    padding: 0;
+`
+
+export const ItemStat = styled.li`
     display: flex;
     justify-content: space-between;
     gap: 10px;

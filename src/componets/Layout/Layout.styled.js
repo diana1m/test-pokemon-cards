@@ -11,8 +11,8 @@ export const Container = styled.div`
 export const Header = styled.header`
     display: flex;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 35px;
+    padding-bottom: 35px;
     padding-left: 15px;
     background-color: #153462;
     box-shadow:-2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);

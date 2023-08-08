@@ -1,6 +1,12 @@
 export const selectPokemons= state => state.pokemons.pokemons;
 
-export const selectPage= state => state.pokemons.page;
+export const selectResult = state => state.pokemons.result;
+
+export const selectPage = state => state.pokemons.page;
+
+export const selectPerPage = state => state.pokemons.perPage;
+
+export const selectCount = state => state.pokemons.count;
 
 export const selectIsLoading = state => state.pokemons.isLoading;
 

@@ -5,16 +5,32 @@ axios.defaults.baseURL = 'https://pokeapi.co/api/v2/';
 
 export const fetchPokemons = createAsyncThunk(
   'pokemons/fetchPokemons',
-  async (page = 1, thunkAPI) => {
-    const pokemons = []
+  async ({page = 1, perPage = 10}, thunkAPI) => {
     try {
-      for (let i = page*50-49; i <= page*50; i ++) {
-        const id = i+"";
-        const { data } = await axios.get(`/pokemon/${id}`)
-      pokemons.push(data);
-      }
+      const response = await axios.get(`pokemon?limit=${perPage}&offset=${page*perPage-perPage}`);
+      console.log(response.data);
       
-      return pokemons;
+      return response.data;
+    } catch (e) {
+        thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const getPokemonData = createAsyncThunk(
+  'pokemons/getPokemonData',
+  async (result, thunkAPI) => {
+    try {
+      const pokemonArr = [];
+      await Promise.all(
+        result.map((pokemonItem) => {
+            return axios
+                .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
+                .then((result) => {
+                    pokemonArr.push(result.data);
+                });
+        }))
+      return pokemonArr;
     } catch (e) {
         thunkAPI.rejectWithValue(e.message);
     }

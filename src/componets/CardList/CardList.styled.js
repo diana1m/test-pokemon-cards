@@ -29,7 +29,7 @@ export const List = styled.ul `
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
 `
 
 export const Btn = styled.button`
@@ -87,7 +87,7 @@ export const WrapForBtn = styled.div`
 
 export const BtnGoBack = styled(NavLink)`
     display: block;
-    width: 140px;
+    max-width: 180px;
     padding: 12px 18px;
 
     display: flex;

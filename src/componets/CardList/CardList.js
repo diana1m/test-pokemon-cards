@@ -2,21 +2,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { selectFilterName, selectFilterTags, selectIsLoading, selectIsLoadingPokemons, selectPage, selectPokemons } from "../../redux/selectors";
-import { fetchPokemons} from "../../redux/operations";
-import { changePage } from "../../redux/slice";
+import { selectFilterName, selectFilterTags, selectIsLoading, selectIsLoadingPokemons, selectPage, selectPerPage, selectPokemons, selectResult } from "../../redux/selectors";
+import { fetchPokemons, getPokemonData} from "../../redux/operations";
+// import { changePage } from "../../redux/slice";
 
-import { Btn, List, BtnGoBack, Container, WrapForBtn, Notification} from "./CardList.styled";
+import { List, BtnGoBack, Container, WrapForBtn, Notification} from "./CardList.styled";
 import { FiArrowLeft } from "react-icons/fi";
 import { Loader } from "../Loader/Loader";
 import { CardItem } from "../CardItem/CardItem";
 import { FilterTags } from "../FilterTags/FilterTags";
 import { FilterName } from "../FilterName/FilterName";
+import { Pagination } from "../Pagination/Pagination";
 
 
 export const CardList = () => {
     const pokemons = useSelector(selectPokemons);
-    const pages = useSelector(selectPage);
+    const result = useSelector(selectResult);
+    const page = useSelector(selectPage);
+    const perPage = useSelector (selectPerPage);
     const isLoading = useSelector(selectIsLoading);
     const isLoadingPokemons = useSelector(selectIsLoadingPokemons);
     const filterName = useSelector(selectFilterName);
@@ -40,13 +43,17 @@ export const CardList = () => {
     };
     
 
-    const handleLoadMore = () => {
-        dispatch(changePage(pages+1))
-      };
+    // const handleLoadMore = () => {
+    //     dispatch(changePage(page+1))
+    //   };
     
     useEffect(() => {
-        dispatch(fetchPokemons(pages));
-    }, [dispatch, pages]);
+        dispatch(fetchPokemons({page, perPage}));
+    }, [dispatch, page, perPage]);
+
+    useEffect(()=>{
+        dispatch(getPokemonData(result));
+    }, [dispatch, result])
 
 
     return(
@@ -67,6 +74,8 @@ export const CardList = () => {
 
                 <FilterName/>  
             </WrapForBtn>
+
+            <Pagination/>
              
             <FilterTags/>
             
@@ -81,10 +90,10 @@ export const CardList = () => {
             } 
             
             
-            {(!isLoadingPokemons && filterByTags().length !== 0) &&
-            <Btn type="button" onClick={handleLoadMore} disabled={pages === 20}>
+            {/* {(!isLoadingPokemons && filterByTags().length !== 0) &&
+            <Btn type="button" onClick={handleLoadMore} disabled={page === 20}>
             Load next page
-            </Btn>} 
+            </Btn>}  */}
         </Container>
     )
 }
