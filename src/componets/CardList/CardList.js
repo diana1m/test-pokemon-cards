@@ -2,9 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { selectFilterName, selectFilterTags, selectIsLoading, selectIsLoadingPokemons, selectPage, selectPerPage, selectPokemons, selectResult } from "../../redux/selectors";
-import { fetchPokemons, getPokemonData} from "../../redux/operations";
-// import { changePage } from "../../redux/slice";
+import { selectFilterName, selectFilterTags, selectIsFilterNamePokemon, selectIsLoading, selectIsLoadingPokemons, selectPage, selectPerPage, selectPokemons, selectResult } from "../../redux/selectors";
+import { fetchPokemons, getPokemonByName, getPokemonData, getPokemonsByTypes} from "../../redux/operations";
 
 import { List, BtnGoBack, Container, WrapForBtn, Notification} from "./CardList.styled";
 import { FiArrowLeft } from "react-icons/fi";
@@ -22,39 +21,41 @@ export const CardList = () => {
     const perPage = useSelector (selectPerPage);
     const isLoading = useSelector(selectIsLoading);
     const isLoadingPokemons = useSelector(selectIsLoadingPokemons);
+    const isFilterNamePokemon = useSelector(selectIsFilterNamePokemon);
     const filterName = useSelector(selectFilterName);
     const filterTags = useSelector(selectFilterTags);
 
     const dispatch = useDispatch();
     const location = useLocation();
-
-    const filterPokemons = pokemons
-    .filter(pokemon => pokemon.name.includes(filterName.toLowerCase()))
-
-
-    const filterByTags = () => {
-        if (filterTags.length === 0) {
-            return filterPokemons;
-        }
-        const newArr = filterPokemons.filter(pokemon => pokemon.types.length === 1  
-            ? filterTags.includes(pokemon.types[0].type.name) 
-            : (filterTags.includes(pokemon.types[1].type.name) || filterTags.includes(pokemon.types[0].type.name)))
-        return newArr;
-    };
-    
-
-    // const handleLoadMore = () => {
-    //     dispatch(changePage(page+1))
-    //   };
     
     useEffect(() => {
-        dispatch(fetchPokemons({page, perPage}));
-    }, [dispatch, page, perPage]);
+        if (filterTags.length !== 0){
+            dispatch(getPokemonsByTypes({page, perPage, type: filterTags[0]}));
+        } else {
+            dispatch(fetchPokemons({page, perPage}));
+        }
+        
+    }, [dispatch, page, perPage, filterTags]);
+
 
     useEffect(()=>{
         dispatch(getPokemonData(result));
     }, [dispatch, result])
 
+    useEffect(()=>{
+        if (filterName.length === 0){
+            dispatch(getPokemonData(result));
+        } else {
+            const timeoutId = setTimeout(() => {
+                dispatch(getPokemonByName(filterName));
+                console.log('Відправлено запит:');
+              }, 300); 
+          
+              return () => {
+                clearTimeout(timeoutId);
+              };  
+        }
+    }, [dispatch, filterName, result])
 
     return(
         <Container>
@@ -74,26 +75,22 @@ export const CardList = () => {
 
                 <FilterName/>  
             </WrapForBtn>
-
-            <Pagination/>
              
             <FilterTags/>
             
             {isLoadingPokemons && <Loader/> }
-            {(!isLoadingPokemons && filterByTags().length === 0)
+            {((!isLoadingPokemons && pokemons.length === 0) || !pokemons[0])
                     ? <Notification>Nothing was found for your request
                         
                     </Notification> 
                     : <List>
-                    {filterByTags().map(poke=><CardItem key = {poke.id} poke={poke}/>)}
+                    {pokemons.map(poke=><CardItem key = {poke.id} poke={poke}/>)}
                 </List>
             } 
+            {(!isLoadingPokemons && pokemons.length !== 0 && !isFilterNamePokemon) && 
+                <Pagination/>
+            }
             
-            
-            {/* {(!isLoadingPokemons && filterByTags().length !== 0) &&
-            <Btn type="button" onClick={handleLoadMore} disabled={page === 20}>
-            Load next page
-            </Btn>}  */}
         </Container>
     )
 }

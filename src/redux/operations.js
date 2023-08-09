@@ -7,8 +7,8 @@ export const fetchPokemons = createAsyncThunk(
   'pokemons/fetchPokemons',
   async ({page = 1, perPage = 10}, thunkAPI) => {
     try {
+      
       const response = await axios.get(`pokemon?limit=${perPage}&offset=${page*perPage-perPage}`);
-      console.log(response.data);
       
       return response.data;
     } catch (e) {
@@ -27,6 +27,7 @@ export const getPokemonData = createAsyncThunk(
             return axios
                 .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
                 .then((result) => {
+
                     pokemonArr.push(result.data);
                 });
         }))
@@ -51,3 +52,34 @@ export const getTypes = createAsyncThunk(
   }
 );
 
+export const getPokemonByName = createAsyncThunk(
+  'pokemons/getPokemonByName',
+  async (name, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/pokemon/${name}`);
+      return data;
+    } catch (e) {
+        thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const getPokemonsByTypes = createAsyncThunk(
+  'pokemons/getPokemonByTypes',
+  async ({page = 1, perPage = 10, type}, thunkAPI) => {
+    try {
+      
+      const { data } = await axios.get(`/type/${type}`);
+      const pokemonArr = data.pokemon.map(p => p.pokemon)
+      const currentItems = pokemonArr.slice((page*perPage-perPage), page*perPage);
+      const results = {
+        currentItems,
+        count: data.pokemon.length
+      }
+      console.log(results)
+      return results;
+    } catch (e) {
+        thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectFilterName } from '../../redux/selectors';
+import { selectFilterName} from '../../redux/selectors';
 import { changeFilterName } from '../../redux/slice';
 import { StyledInput } from './FilterName.styled';
+
 
 
 export const FilterName = () => {
@@ -10,12 +11,15 @@ export const FilterName = () => {
     const dispatch = useDispatch();
 
     const handleFilter = evt =>{
-        dispatch(changeFilterName(evt.target.value))
+        dispatch(changeFilterName(evt.target.value.toLowerCase()));
     }
     
     return(
-        <>
-            <StyledInput onChange={handleFilter} value={filterName} type="text" name="filter" placeholder='Find Pokemon by name'/>
+        < >
+            <StyledInput value={filterName} onChange={handleFilter} type="text" name="filter" placeholder='Find Pokemon by name'/>
+            {/* <Btn type="submit">
+                <Icon/>
+            </Btn> */}
         </>    
     )
 }

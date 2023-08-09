@@ -20,8 +20,6 @@ export const Pagination = () => {
 
     const handleSelect = (selectedOption) => {
         dispatch(changePerPage(selectedOption.value));
-        console.log("select", selectedOption.value)
-        console.log("perPage", perPage)
     }
 
     return(
@@ -40,7 +38,6 @@ export const Pagination = () => {
                 limit={perPage}
                 changePage={(currentPage) => {
                 dispatch(changePage(currentPage)); 
-                console.log(currentPage);
                 }}
                 ellipsis={2}
             />

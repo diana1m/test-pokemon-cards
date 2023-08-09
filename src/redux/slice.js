@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPokemons, getPokemonData, getTypes } from "./operations";
+import { fetchPokemons, getPokemonByName, getPokemonData, getPokemonsByTypes, getTypes } from "./operations";
 
 const pokemonsSlice = createSlice({
   name: "pokemons",
@@ -14,6 +14,7 @@ const pokemonsSlice = createSlice({
     perPage: 10,
     isLoading: false,
     isLoadingPokemons: false,
+    isFilterNamePokemon: false,
   },
   reducers: {
     changePage(state, action) {
@@ -23,12 +24,14 @@ const pokemonsSlice = createSlice({
       state.perPage = action.payload;
     },
     changeFilterName(state, action) {
+      state.filterTags = '';
       state.filterName = action.payload;
     },
     changeFilterTags(state, action){
+      state.filterName = '';
       state.filterTags = state.filterTags.includes(action.payload) 
       ? state.filterTags.filter((t) => t !== action.payload) 
-      : [...state.filterTags, action.payload]
+      : [action.payload]
     }
   },
   extraReducers: builder => {
@@ -45,17 +48,35 @@ const pokemonsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getTypes.fulfilled, (state, action) => {
-        state.types = action.payload;
+        state.types = action.payload.filter(type => type !== "unknown" && type !== "shadow");
         state.isLoading = false;
       })
       .addCase(getPokemonData.pending, (state) => {
         state.isLoadingPokemons = true;
       })
       .addCase(getPokemonData.fulfilled, (state, action) => {
-        // state.page === 1 
-        // ? state.pokemons = action.payload 
-        // : state.pokemons = [...state.pokemons, ...action.payload];
         state.pokemons = action.payload;
+        state.isLoadingPokemons = false;
+        state.isFilterNamePokemon = false;
+      })
+      .addCase(getPokemonByName.pending, (state) => {
+        state.isLoadingPokemons = true;
+      })
+      .addCase(getPokemonByName.fulfilled, (state, action) => {
+        state.pokemons = [action.payload];
+        state.isLoadingPokemons = false;
+        state.isFilterNamePokemon = true;
+      })
+      .addCase(getPokemonsByTypes.pending, (state) => {
+        state.isLoadingPokemons = true;
+      })
+      .addCase(getPokemonsByTypes.fulfilled, (state, action) => {
+        // if (state.filterTags.length === 0) {
+          state.result = action.payload.currentItems;
+        // } else {
+        //   state.result = [...state.result, ...action.payload.pokemon.map(p => p.pokemon)];
+        // }
+        state.count = action.payload.count;
         state.isLoadingPokemons = false;
       })
     }

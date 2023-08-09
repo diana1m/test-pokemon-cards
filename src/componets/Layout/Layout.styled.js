@@ -11,12 +11,12 @@ export const Container = styled.div`
 export const Header = styled.header`
     display: flex;
     align-items: center;
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 30px;
+    padding-bottom: 20px;
     padding-left: 15px;
+    padding-right: 15px;
     background-color: #153462;
     box-shadow:-2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 50px;
 `

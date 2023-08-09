@@ -3,7 +3,7 @@ import { selectFilterTags, selectTypes } from "../../redux/selectors";
 import { useEffect } from "react";
 import { getTypes } from "../../redux/operations";
 import { TagsBtn, Wrapper } from "./FilterTags.styled";
-import { changeFilterTags } from "../../redux/slice";
+import { changeFilterTags, changePage } from "../../redux/slice";
 
 export const FilterTags=()=>{
     const dispatch = useDispatch();
@@ -15,7 +15,14 @@ export const FilterTags=()=>{
     }, [dispatch]);
 
     function handleBtn (type) {
+        dispatch(changePage(1));
         dispatch(changeFilterTags(type));
+        // dispatch(getPokemonsByTypes({page, perPage, type}));
+        // console.log(filterTags.length)
+        // if (filterTags.length === 0) {
+        //     dispatch(fetchPokemons({page, perPage}))
+        // }
+        // dispatch(getPokemonData(result));
     } 
 
     return(
