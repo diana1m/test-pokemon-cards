@@ -71,11 +71,7 @@ const pokemonsSlice = createSlice({
         state.isLoadingPokemons = true;
       })
       .addCase(getPokemonsByTypes.fulfilled, (state, action) => {
-        // if (state.filterTags.length === 0) {
-          state.result = action.payload.currentItems;
-        // } else {
-        //   state.result = [...state.result, ...action.payload.pokemon.map(p => p.pokemon)];
-        // }
+        state.result = action.payload.currentItems;
         state.count = action.payload.count;
         state.isLoadingPokemons = false;
       })

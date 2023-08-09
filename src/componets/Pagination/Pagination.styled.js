@@ -15,7 +15,6 @@ export const SelectStyled = styled(Select)`
     height: 36px;
 
     &:hover {
-        /* box-shadow: 0px 7px 7px 0px rgba(0, 123, 255, 0.3); */
         border-color: blue;
     }
 `

@@ -76,7 +76,6 @@ export const getPokemonsByTypes = createAsyncThunk(
         currentItems,
         count: data.pokemon.length
       }
-      console.log(results)
       return results;
     } catch (e) {
         thunkAPI.rejectWithValue(e.message);

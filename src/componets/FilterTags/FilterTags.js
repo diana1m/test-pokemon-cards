@@ -17,12 +17,6 @@ export const FilterTags=()=>{
     function handleBtn (type) {
         dispatch(changePage(1));
         dispatch(changeFilterTags(type));
-        // dispatch(getPokemonsByTypes({page, perPage, type}));
-        // console.log(filterTags.length)
-        // if (filterTags.length === 0) {
-        //     dispatch(fetchPokemons({page, perPage}))
-        // }
-        // dispatch(getPokemonData(result));
     } 
 
     return(
