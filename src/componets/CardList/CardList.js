@@ -48,8 +48,7 @@ export const CardList = () => {
         } else {
             const timeoutId = setTimeout(() => {
                 dispatch(getPokemonByName(filterName));
-                console.log('Відправлено запит:');
-              }, 300); 
+              }, 500); 
           
               return () => {
                 clearTimeout(timeoutId);
