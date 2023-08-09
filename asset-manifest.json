@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/test-pokemon-cards/static/css/main.e6b41806.css",
-    "main.js": "/test-pokemon-cards/static/js/main.e41a155c.js",
+    "main.js": "/test-pokemon-cards/static/js/main.e3616e6f.js",
     "static/js/876.ba611007.chunk.js": "/test-pokemon-cards/static/js/876.ba611007.chunk.js",
-    "static/js/116.b1488caf.chunk.js": "/test-pokemon-cards/static/js/116.b1488caf.chunk.js",
+    "static/js/116.1c88b402.chunk.js": "/test-pokemon-cards/static/js/116.1c88b402.chunk.js",
     "static/css/785.2e3127b8.chunk.css": "/test-pokemon-cards/static/css/785.2e3127b8.chunk.css",
     "static/js/785.ea71f9e1.chunk.js": "/test-pokemon-cards/static/js/785.ea71f9e1.chunk.js",
     "static/media/Pokemon.png": "/test-pokemon-cards/static/media/Pokemon.de13e6e7ec1233821760.png",
     "static/media/Pikachu.png": "/test-pokemon-cards/static/media/Pikachu.fb866129855ee7c79f0a.png",
     "index.html": "/test-pokemon-cards/index.html",
     "main.e6b41806.css.map": "/test-pokemon-cards/static/css/main.e6b41806.css.map",
-    "main.e41a155c.js.map": "/test-pokemon-cards/static/js/main.e41a155c.js.map",
+    "main.e3616e6f.js.map": "/test-pokemon-cards/static/js/main.e3616e6f.js.map",
     "876.ba611007.chunk.js.map": "/test-pokemon-cards/static/js/876.ba611007.chunk.js.map",
-    "116.b1488caf.chunk.js.map": "/test-pokemon-cards/static/js/116.b1488caf.chunk.js.map",
+    "116.1c88b402.chunk.js.map": "/test-pokemon-cards/static/js/116.1c88b402.chunk.js.map",
     "785.2e3127b8.chunk.css.map": "/test-pokemon-cards/static/css/785.2e3127b8.chunk.css.map",
     "785.ea71f9e1.chunk.js.map": "/test-pokemon-cards/static/js/785.ea71f9e1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6b41806.css",
-    "static/js/main.e41a155c.js"
+    "static/js/main.e3616e6f.js"
   ]
 }
